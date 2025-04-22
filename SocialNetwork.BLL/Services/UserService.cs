@@ -8,12 +8,8 @@ namespace SocialNetwork.BLL.Services;
 
 public class UserService
 {
-    IUserRepository userRepository;
-
-    public UserService()
-    {
-        userRepository = new UserRepository();
-    }
+    MessageService messageService = new MessageService();
+    IUserRepository userRepository = new UserRepository();
 
     public void Register(UserRegistrationData userRegistrationData)
     {
@@ -75,6 +71,22 @@ public class UserService
         return ConstructUserModel(findUserEntity);
     }
 
+    public User FindByEmail(string email)
+    {
+        var findUserEntity = userRepository.FindByEmail(email);
+        if (findUserEntity is null) throw new UserNotFoundException();
+
+        return ConstructUserModel(findUserEntity);
+    }
+
+    public User FindById(int id)
+    {
+        var findUserEntity = userRepository.FindById(id);
+        if (findUserEntity is null) throw new UserNotFoundException();
+
+        return ConstructUserModel(findUserEntity);
+    }
+
     public void Update(User user)
     {
         var updatableUserEntity = new UserEntity()
@@ -94,6 +106,9 @@ public class UserService
 
     private User ConstructUserModel(UserEntity userEntity)
     {
+        var incomingMessages = messageService.GetIncomingMessagesByUserId(userEntity.id);
+        var outcomingMessages = messageService.GetOutcommingMessagesByUserId(userEntity.id);
+
         return new User(userEntity.id,
                       userEntity.firstname,
                       userEntity.lastname,
@@ -101,6 +116,8 @@ public class UserService
                       userEntity.email,
                       userEntity.photo,
                       userEntity.favorite_movie,
-                      userEntity.favorite_book);
+                      userEntity.favorite_book,
+                      incomingMessages,
+                      outcomingMessages);
     }
 }

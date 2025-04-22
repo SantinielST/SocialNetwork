@@ -7,7 +7,7 @@ namespace SocialNetwork.PLL.Views;
 
 internal class MessageSendingView(MessageService messageService, UserService userService)
 {
-    MessgeService _messgeService;
+    MessageService _messgeService;
     UserService _userService;
 
     public void Show(User user)

@@ -10,7 +10,7 @@ public class MessageService
     IMessageRepository messageRposirory = new MessageRepository();
     IUserRepository userRepository = new UserRepository();
 
-    public IEnumerable<Message> GetIncomingMessageByUserId(int recipientId)
+    public IEnumerable<Message> GetIncomingMessagesByUserId(int recipientId)
     {
         var messages = new List<Message>();
 
@@ -24,7 +24,7 @@ public class MessageService
         return messages;
     }
 
-    public IEnumerable<Message> GetOutcommingMessageByUserId(int senderId)
+    public IEnumerable<Message> GetOutcommingMessagesByUserId(int senderId)
     {
         var messages = new List<Message>();
 
