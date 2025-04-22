@@ -10,6 +10,7 @@ public class UserService
 {
     MessageService messageService = new MessageService();
     IUserRepository userRepository = new UserRepository();
+    IFriendRepository friendRepository = new FriendRepository();
 
     public void Register(UserRegistrationData userRegistrationData)
     {
@@ -87,6 +88,27 @@ public class UserService
         return ConstructUserModel(findUserEntity);
     }
 
+    public IEnumerable<User> GetFriendsByUserId(int userId)
+    {
+        return friendRepository.FindAllByUserId(userId)
+                .Select(friendsEntity => FindById(friendsEntity.friend_id));
+    }
+
+    public void AddFriend(FriendAddingData friendAddingData)
+    {
+        var findUserEntity = userRepository.FindByEmail(friendAddingData.FriendEmail);
+        if (findUserEntity is null) throw new UserNotFoundException();
+
+        var friendEntity = new FriendEntity()
+        {
+            user_id = friendAddingData.UserId,
+            friend_id = findUserEntity.id
+        };
+
+        if (friendRepository.Create(friendEntity) == 0)
+            throw new Exception();
+    }
+
     public void Update(User user)
     {
         var updatableUserEntity = new UserEntity()
@@ -108,6 +130,7 @@ public class UserService
     {
         var incomingMessages = messageService.GetIncomingMessagesByUserId(userEntity.id);
         var outcomingMessages = messageService.GetOutcomingMessagesByUserId(userEntity.id);
+        var friends = GetFriendsByUserId(userEntity.id);
 
         return new User(userEntity.id,
                       userEntity.firstname,
@@ -118,6 +141,7 @@ public class UserService
                       userEntity.favorite_movie,
                       userEntity.favorite_book,
                       incomingMessages,
-                      outcomingMessages);
+                      outcomingMessages,
+                      friends);
     }
 }

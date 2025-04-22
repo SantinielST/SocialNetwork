@@ -2,7 +2,7 @@
 
 public class User(int id, string firstName, string lastName, string password, string email,
     string photo, string favoriteMovie, string favoriteBook, IEnumerable<Message> incomingMessages,
-    IEnumerable<Message> outcomingMessages)
+    IEnumerable<Message> outcomingMessages, IEnumerable<User> friends)
 {
     public int Id { get; } = id;
     public string FirstName { get; set; } = firstName;
@@ -15,6 +15,5 @@ public class User(int id, string firstName, string lastName, string password, st
 
     public IEnumerable<Message> IncomingMessages { get; } = incomingMessages;
     public IEnumerable<Message> OutcomingMessages { get; } = outcomingMessages;
-
-    //public IEnumerable<User> Friends { get; } = friends;
+    public IEnumerable<User> Friends { get; } = friends;
 }
