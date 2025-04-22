@@ -107,7 +107,7 @@ public class UserService
     private User ConstructUserModel(UserEntity userEntity)
     {
         var incomingMessages = messageService.GetIncomingMessagesByUserId(userEntity.id);
-        var outcomingMessages = messageService.GetOutcommingMessagesByUserId(userEntity.id);
+        var outcomingMessages = messageService.GetOutcomingMessagesByUserId(userEntity.id);
 
         return new User(userEntity.id,
                       userEntity.firstname,

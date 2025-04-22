@@ -24,7 +24,7 @@ public class MessageService
         return messages;
     }
 
-    public IEnumerable<Message> GetOutcommingMessagesByUserId(int senderId)
+    public IEnumerable<Message> GetOutcomingMessagesByUserId(int senderId)
     {
         var messages = new List<Message>();
 

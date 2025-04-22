@@ -7,8 +7,8 @@ namespace SocialNetwork.PLL.Views;
 
 internal class MessageSendingView(MessageService messageService, UserService userService)
 {
-    MessageService _messgeService;
-    UserService _userService;
+    MessageService _messageService = messageService;
+    UserService _userService = userService;
 
     public void Show(User user)
     {
@@ -24,7 +24,7 @@ internal class MessageSendingView(MessageService messageService, UserService use
 
         try
         {
-            _messgeService.SendMessage(messageSendingData);
+            _messageService.SendMessage(messageSendingData);
 
             SuccessMessage.Show("Сообщение было успешно отправлено!");
 

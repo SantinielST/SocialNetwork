@@ -17,7 +17,7 @@ public class UserRepository : BaseRepository, IUserRepository
 
     public UserEntity FindByEmail(string email) 
     {
-        return QueryFirstOrDefault<UserEntity>("select * from users where Email = :email_p", new { email_p = email });
+        return QueryFirstOrDefault<UserEntity>("select * from users where email = :email_p", new { email_p = email });
     }
 
 

@@ -5,7 +5,7 @@ namespace SocialNetwork.PLL.Views;
 
 internal class UserMenuView(UserService userService)
 {
-    UserService _userService;
+    UserService _userService = userService;
 
     public void Show(User user)
     {
@@ -24,16 +24,24 @@ internal class UserMenuView(UserService userService)
 
             string keyValue = Console.ReadLine();
 
-            if (keyValue == "7") break;
+            if (keyValue == "7")
+            {
+                Console.WriteLine();
+                break; 
+            }
 
+            Console.WriteLine();
             switch (keyValue)
             {
                 case "1":
                     Program.userInfoView.Show(user);
+                    Console.WriteLine();
                     break;
 
                 case "2":
                     Program.userDataUpdateView.Show(user);
+                    user = _userService.FindById(user.Id);
+                    Console.WriteLine();
                     break;
 
                 case "3":
@@ -41,16 +49,19 @@ internal class UserMenuView(UserService userService)
 
                 case "4":
                     Program.messageSendingView.Show(user);
+                    user = _userService.FindById(user.Id);
+                    Console.WriteLine();
                     break;
 
                 case "5":
-                    Program.incomingMessageView.Show(user.IncomingMessages);
+                    Program.userIncomingMessageView.Show(user.IncomingMessages);
+                    Console.WriteLine();
                     break;
 
                 case "6":
-                    Program.outcomingMessageView.Show(user.OutcomingMessages);
-
-
+                    Program.userOutcomingMessageView.Show(user.OutcomingMessages);
+                    Console.WriteLine();
+                    break;
             }
         }
     }
