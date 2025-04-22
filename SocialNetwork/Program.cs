@@ -17,7 +17,6 @@ namespace SocialNetwork
         public static UserIncomingMessageView userIncomingMessageView;
         public static UserOutcomingMessageView userOutcomingMessageView;
 
-
         static void Main(string[] args)
         {
             Console.WriteLine("Добро пожаловать в социальную сеть.");
