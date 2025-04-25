@@ -52,6 +52,7 @@ internal class UserMenuView(UserService userService)
 
                 case "4":
                     Program.userFriendsView.Show(user.Friends);
+                    Console.WriteLine();
                     break;
 
                 case "5":

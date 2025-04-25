@@ -6,12 +6,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SocialNetwork.BLL.Services;
 
+/// <summary>
+/// Класс-сервис для работы с пользователями
+/// </summary>
 public class UserService
 {
     MessageService messageService = new MessageService();
     IUserRepository userRepository = new UserRepository();
     IFriendRepository friendRepository = new FriendRepository();
-
+    
+    // Регистрация нового пользователя
     public void Register(UserRegistrationData userRegistrationData)
     {
         if (string.IsNullOrEmpty(userRegistrationData.FirstName))
@@ -63,6 +67,7 @@ public class UserService
         }
     }
 
+    // Аунтефикация пользователя
     public User Authenticate(UserAuthenticationData userAuthenticationData)
     {
         var findUserEntity = userRepository.FindByEmail(userAuthenticationData.Email);
@@ -72,6 +77,7 @@ public class UserService
         return ConstructUserModel(findUserEntity);
     }
 
+    // Поиск пользователя по Email
     public User FindByEmail(string email)
     {
         var findUserEntity = userRepository.FindByEmail(email);
@@ -80,6 +86,7 @@ public class UserService
         return ConstructUserModel(findUserEntity);
     }
 
+    // Поиск пользователя по Id
     public User FindById(int id)
     {
         var findUserEntity = userRepository.FindById(id);
@@ -88,12 +95,14 @@ public class UserService
         return ConstructUserModel(findUserEntity);
     }
 
+    // Поиск друзей пользователя по Id
     public IEnumerable<User> GetFriendsByUserId(int userId)
     {
         return friendRepository.FindAllByUserId(userId)
                 .Select(friendsEntity => FindById(friendsEntity.friend_id));
     }
 
+    // Добавление другого пользоввателя в друзья
     public void AddFriend(FriendAddingData friendAddingData)
     {
         var findUserEntity = userRepository.FindByEmail(friendAddingData.FriendEmail);
@@ -109,6 +118,7 @@ public class UserService
             throw new Exception();
     }
 
+    // Обновление информации пользователя
     public void Update(User user)
     {
         var updatableUserEntity = new UserEntity()
@@ -126,6 +136,7 @@ public class UserService
         if (userRepository.Update(updatableUserEntity) == 0) throw new Exception();
     }
 
+    // Построение модели пользователя из сущности пользователя
     private User ConstructUserModel(UserEntity userEntity)
     {
         var incomingMessages = messageService.GetIncomingMessagesByUserId(userEntity.id);

@@ -7,14 +7,14 @@ namespace SocialNetwork.BLL.Services;
 
 public class MessageService
 {
-    IMessageRepository messageRposirory = new MessageRepository();
+    IMessageRepository messageRepository = new MessageRepository();
     IUserRepository userRepository = new UserRepository();
 
     public IEnumerable<Message> GetIncomingMessagesByUserId(int recipientId)
     {
         var messages = new List<Message>();
 
-        messageRposirory.FindByRecipientId(recipientId).ToList().ForEach(m =>
+        messageRepository.FindByRecipientId(recipientId).ToList().ForEach(m =>
         {
             var senderUserEntity = userRepository.FindById(m.sender_id);
             var recipientUserEntity = userRepository.FindById(m.recipient_id);
@@ -28,7 +28,7 @@ public class MessageService
     {
         var messages = new List<Message>();
 
-        messageRposirory.FindBySenderId(senderId).ToList().ForEach(m =>
+        messageRepository.FindBySenderId(senderId).ToList().ForEach(m =>
         {
             var senderUserEntity = userRepository.FindById(m.sender_id);
             var recipientUserEntity = userRepository.FindById(m.recipient_id);
@@ -63,7 +63,7 @@ public class MessageService
             recipient_id = findUserEntity.id
         };
 
-        if (messageRposirory.Create(messageEntity) == 0)
+        if (messageRepository.Create(messageEntity) == 0)
         {
             throw new Exception();
         }

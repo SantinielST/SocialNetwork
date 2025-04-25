@@ -11,7 +11,7 @@ public class FriendRepository : BaseRepository, IFriendRepository
     
     public int Create(FriendEntity friendEntity)
     {
-        return Execute(@"insert into friends (user_id, friend_id) values (:user_id, :friend_id)", friendEntity);
+        return Execute(@"insert into friends (user_id,friend_id) values (:user_id,:friend_id)", friendEntity);
     }
     
     public int Delete(int id)

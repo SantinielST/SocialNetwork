@@ -35,6 +35,6 @@ public class BaseRepository
 
     private IDbConnection CreateConnection()
     {
-        return new SQLiteConnection("Data Source = DB/social_network_bd.db; Version = 3");
+        return new SQLiteConnection("Data Source=D:/Repos/SocialNetwork/SocialNetwork.DAL/DB/social_network.db");
     }
 }

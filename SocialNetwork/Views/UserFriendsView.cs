@@ -10,7 +10,7 @@ internal class UserFriendsView
 
         if (friends.Count() == 0)
         {
-            Console.WriteLine("У вас нет друзей");
+            Console.WriteLine("У вас нет друзей(");
             return;
         }
 

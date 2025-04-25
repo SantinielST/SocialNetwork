@@ -29,7 +29,7 @@ public class UserRepository : BaseRepository, IUserRepository
     public int Update(UserEntity userEntity)
     {
         return Execute(@"update users set firstname = :firstname, lastname = :lastname, password = :password,
-                         email = :email, photo = :photo, favorite_movie = :favorite_movie, favorite_book = :favorite_book where Id = :id", userEntity);
+                         email = :email, photo = :photo, favorite_movie = :favorite_movie, favorite_book = :favorite_book where id = :id", userEntity);
     }
 
     public int DeleteById(int id)
