@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для просмотра списка друзей
+/// </summary>
 internal class UserFriendsView
 {
     public void Show(IEnumerable<User> friends)

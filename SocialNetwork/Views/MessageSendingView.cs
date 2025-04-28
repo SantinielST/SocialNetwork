@@ -5,6 +5,11 @@ using SocialNetwork.PLL.Helpers;
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для отправки сообщений
+/// </summary>
+/// <param name="messageService"></param>
+/// <param name="userService"></param>
 internal class MessageSendingView(MessageService messageService, UserService userService)
 {
     MessageService _messageService = messageService;

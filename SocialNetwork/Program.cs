@@ -5,6 +5,9 @@ namespace SocialNetwork
 {
     internal class Program
     {
+        /// <summary>
+        /// Подключаем сервисы и представдения
+        /// </summary>
         static UserService userService;
         static MessageService messageService;
         public static MainView mainView;
@@ -23,6 +26,7 @@ namespace SocialNetwork
         {
             Console.WriteLine("Добро пожаловать в социальную сеть.");
 
+            // Создание объектов
             userService = new UserService();
             messageService = new MessageService();
 
@@ -38,6 +42,7 @@ namespace SocialNetwork
             friendAddingDataView = new FriendAddingDataView(userService);
             userFriendsView = new UserFriendsView();
 
+            // Запуск основного окна
             while (true)
             {
                 mainView.Show();

@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.DAL.Repositories;
 
+/// <summary>
+/// Репозиторий друга
+/// </summary>
 public class FriendRepository : BaseRepository, IFriendRepository
 {
     public IEnumerable<FriendEntity> FindAllByUserId(int userId)

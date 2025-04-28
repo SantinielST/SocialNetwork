@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для просмотра входящих сообщений
+/// </summary>
 internal class UserIncomingMessageView
 {
     public void Show(IEnumerable<Message> incomingMessages)

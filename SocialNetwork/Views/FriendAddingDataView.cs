@@ -5,6 +5,10 @@ using SocialNetwork.PLL.Helpers;
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для добавление в друзья пользователя
+/// </summary>
+/// <param name="userService"></param>
 internal class FriendAddingDataView(UserService userService)
 {
     UserService _userService = userService;

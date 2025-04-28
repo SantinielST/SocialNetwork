@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.DAL.Repositories;
 
+/// <summary>
+/// Интерфейс репозитория друга
+/// </summary>
 public interface IFriendRepository
 {
     int Create(FriendEntity friendEntity);

@@ -1,5 +1,8 @@
 ﻿namespace SocialNetwork.DAL.Entities;
 
+/// <summary>
+/// Сущность пользователя
+/// </summary>
 public class UserEntity
 {
     public int id { get; set; }

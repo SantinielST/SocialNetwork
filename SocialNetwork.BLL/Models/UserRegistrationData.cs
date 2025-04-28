@@ -1,5 +1,8 @@
 ﻿namespace SocialNetwork.BLL.Models;
 
+/// <summary>
+/// Модель для регистрации пользователя
+/// </summary>
 public class UserRegistrationData
 {
     public string FirstName { get; set; }

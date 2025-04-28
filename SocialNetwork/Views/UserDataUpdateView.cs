@@ -3,6 +3,10 @@ using SocialNetwork.BLL.Services;
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для обновления информации о пользователе
+/// </summary>
+/// <param name="userService"></param>
 internal class UserDataUpdateView(UserService userService)
 {
     UserService _userService = userService;

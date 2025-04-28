@@ -4,6 +4,9 @@ using System.Data.SQLite;
 
 namespace SocialNetwork.DAL.Repositories;
 
+/// <summary>
+/// Базовый репозиторий для работы с БД
+/// </summary>
 public class BaseRepository
 {
     protected T QueryFirstOrDefault<T>(string sql, object parameters = null)

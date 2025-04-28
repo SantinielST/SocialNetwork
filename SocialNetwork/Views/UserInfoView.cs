@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для просмотра информации о пользователе
+/// </summary>
 internal class UserInfoView
 {
     public void Show(User user)

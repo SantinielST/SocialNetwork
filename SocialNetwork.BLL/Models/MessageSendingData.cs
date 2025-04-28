@@ -1,5 +1,8 @@
 ﻿namespace SocialNetwork.BLL.Models;
 
+/// <summary>
+/// Модель для отправки сообщений
+/// </summary>
 public class MessageSendingData
 {
     public int SenderId { get; set; }

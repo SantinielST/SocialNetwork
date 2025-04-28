@@ -3,6 +3,10 @@ using SocialNetwork.BLL.Services;
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление меню авторизованного пользователя
+/// </summary>
+/// <param name="userService"></param>
 internal class UserMenuView(UserService userService)
 {
     UserService _userService = userService;

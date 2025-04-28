@@ -5,6 +5,10 @@ using SocialNetwork.PLL.Helpers;
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для аунтентификации пользователя
+/// </summary>
+/// <param name="userService"></param>
 internal class AuthenticationView(UserService userService)
 {
     UserService _userService = userService;

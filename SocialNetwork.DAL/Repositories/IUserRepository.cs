@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.DAL.Repositories;
 
+/// <summary>
+/// Интерфейс репозитория пользователя
+/// </summary>
 public interface IUserRepository
 {
     int Create(UserEntity userEntity);

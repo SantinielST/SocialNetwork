@@ -1,5 +1,19 @@
 ﻿namespace SocialNetwork.BLL.Models;
 
+/// <summary>
+/// Модель для пользователя
+/// </summary>
+/// <param name="id"></param>
+/// <param name="firstName"></param>
+/// <param name="lastName"></param>
+/// <param name="password"></param>
+/// <param name="email"></param>
+/// <param name="photo"></param>
+/// <param name="favoriteMovie"></param>
+/// <param name="favoriteBook"></param>
+/// <param name="incomingMessages"></param>
+/// <param name="outcomingMessages"></param>
+/// <param name="friends"></param>
 public class User(int id, string firstName, string lastName, string password, string email,
     string photo, string favoriteMovie, string favoriteBook, IEnumerable<Message> incomingMessages,
     IEnumerable<Message> outcomingMessages, IEnumerable<User> friends)

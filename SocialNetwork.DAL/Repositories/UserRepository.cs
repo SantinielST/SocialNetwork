@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.DAL.Repositories;
 
+/// <summary>
+/// Репозиторий пользователя
+/// </summary>
 public class UserRepository : BaseRepository, IUserRepository
 {
     public int Create(UserEntity userEntity)
@@ -34,6 +37,6 @@ public class UserRepository : BaseRepository, IUserRepository
 
     public int DeleteById(int id)
     {
-        return Execute("delete from users where Id = :id_p", new { id_p = id });
+        return Execute("delete from users where id = :id_p", new { id_p = id });
     }
 }

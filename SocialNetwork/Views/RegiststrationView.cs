@@ -4,6 +4,10 @@ using SocialNetwork.PLL.Helpers;
 
 namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление для регистрации пользователя
+/// </summary>
+/// <param name="userService"></param>
 internal class RegiststrationView(UserService userService)
 {
     UserService _userService = userService;

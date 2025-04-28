@@ -1,5 +1,8 @@
 ﻿namespace SocialNetwork.PLL.Views;
 
+/// <summary>
+/// Представление главного меню
+/// </summary>
 internal class MainView
 {
     public void Show()

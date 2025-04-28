@@ -2,6 +2,9 @@
 
 namespace SocialNetwork.DAL.Repositories;
 
+/// <summary>
+/// Интерфейс репозитория сообщения
+/// </summary>
 public interface IMessageRepository
 {
     int Create(MessageEntity messageEntity);

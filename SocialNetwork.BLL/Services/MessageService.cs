@@ -5,6 +5,9 @@ using SocialNetwork.DAL.Repositories;
 
 namespace SocialNetwork.BLL.Services;
 
+/// <summary>
+/// Сервис для работы с сообщениями
+/// </summary>
 public class MessageService
 {
     IMessageRepository messageRepository = new MessageRepository();
